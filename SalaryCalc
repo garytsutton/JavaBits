@@ -15,6 +15,7 @@ public class SalaryCalculator {
         //Initialise what we know here
         int salary = 500;
         int bonus = 100;
+        int target = 10;
 
         //Get values for the unknown
         System.out.println(("How many sales did you make this week?"));
@@ -23,7 +24,7 @@ public class SalaryCalculator {
         scanner.close();
 
         //Code to cater for bonus earners here
-        if(sales > 10){
+        if(sales > target){
             salary = salary + bonus;
         }
 
