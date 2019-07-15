@@ -1,0 +1,34 @@
+package chapter3;
+
+import java.util.Scanner;
+
+/*
+If Statement
+All sales staff get £500 a week.
+Any who exceed 10 sales get an additional bonus of £100
+ */
+
+public class SalaryCalculator {
+
+    public static void main(String args[]){
+
+        //Initialise what we know here
+        int salary = 500;
+        int bonus = 100;
+
+        //Get values for the unknown
+        System.out.println(("How many sales did you make this week?"));
+        Scanner scanner = new Scanner(System.in);
+        int sales = scanner.nextInt();
+        scanner.close();
+
+        //Code to cater for bonus earners here
+        if(sales > 10){
+            salary = salary + bonus;
+        }
+
+        //Output here
+        System.out.println("Your gross salary for this week is £" + salary);
+
+    }
+}
