@@ -1,0 +1,25 @@
+package chapter2;
+
+import java.util.Scanner;
+
+public class CoffeeAddicts {
+
+    public static void main(String args[]){
+
+        //Obtain an adjective from the user
+        System.out.println("Enter an adjective.");
+        Scanner scanner = new Scanner(System.in);
+        String adj = scanner.next();
+
+        //Obtain a season of the year from the user
+        System.out.println("Enter a season.");
+        String season = scanner.next();
+
+        //Obtain a whole number from the user
+        System.out.println("Enter a whole number.");
+        int number = scanner.nextInt();
+
+        //Print out the result
+        System.out.println("On a " + adj + " " + season + " day, I drink a minimum of " + number + " cups of coffee.");
+    }
+}
