@@ -1,0 +1,71 @@
+//This is based on Angies Solution
+
+package chapter3;
+
+import java.util.Scanner;
+
+/*
+A quick game where the aim is to count up a persons loose change and see if it makes a pound.
+ */
+
+public class QuidsInAlt {
+
+    public static void main(String args[]){
+
+        //Initialise what we do know
+        double penny = .01;
+        double tuppence = .02;
+        double fivep = .05;
+        double tenp = .10;
+        double twentyp = .20;
+        double tenbob = .50;
+        int target = 1;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to Quids In, " +
+                "your goal is to make a whole pound from the change in your pocket.");
+
+        //Find out how many of each coin the user has in their pocket
+        System.out.println("Tell me how many penny's you have in your pocket.");
+        int pennies = scanner.nextInt();
+
+        System.out.println("Tell me how many two pence pieces you have in your pocket.");
+        int twopennies = scanner.nextInt();
+
+        System.out.println("Tell me how many five pence pieces you have in your pocket.");
+        int fivepennies = scanner.nextInt();
+
+        System.out.println("Tell me how many ten pence pieces you have in your pocket.");
+        int tenpennies = scanner.nextInt();
+
+        System.out.println("Tell me how many twenty pence pieces you have in your pocket.");
+        int twentypennies = scanner.nextInt();
+
+        System.out.println("Tell me how many fifty pence pieces you have in your pocket.");
+        int fiftypennies = scanner.nextInt();
+
+        scanner.close();
+
+        //Calculate the amount of change the user has and add it all together
+
+        double total = pennies * penny + twopennies * tuppence + fivepennies * fivep + tenpennies * tenp +
+                twentypennies * twentyp + fiftypennies * tenbob;
+
+        if(total < target){
+            double amountShort = target - total;
+
+            System.out.println(" Sorry, you lose! You were short by " + String.format("%.2f", amountShort)
+            + " pence. Better luck next time.");
+        }
+        else if(total > target){
+            double amountOver = total - target;
+
+            System.out.println(" Sorry, you lose! You were over by " + String.format("%.2f", amountOver)
+                    + " pence. Better luck next time.");
+        }
+        else{
+            System.out.println("Wahoo! Congrats, that is exactly a quid. You won!");
+        }
+    }
+}
