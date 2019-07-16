@@ -1,0 +1,60 @@
+package chapter3;
+
+import java.util.Scanner;
+
+/*
+A quick game where the aim is to count up a persons loose change and see if it makes a pound.
+ */
+
+public class QuidsIn {
+
+    public static void main(String args[]){
+
+        //Initialise what we do know
+        int penny = 1;
+        int tuppence = 2;
+        int fivep = 5;
+        int tenp = 10;
+        int twentyp = 20;
+        int tenbob = 50;
+        int target = 100;
+
+        //Find out how many of each coin the user has in their pocket
+        System.out.println("Tell me how many penny's you have in your pocket.");
+        Scanner scanner = new Scanner(System.in);
+        int pennies = scanner.nextInt();
+
+        System.out.println("Tell me how many two pence pieces you have in your pocket.");
+        int twopennies = scanner.nextInt();
+
+        System.out.println("Tell me how many five pence pieces you have in your pocket.");
+        int fivepennies = scanner.nextInt();
+
+        System.out.println("Tell me how many ten pence pieces you have in your pocket.");
+        int tenpennies = scanner.nextInt();
+
+        System.out.println("Tell me how many twenty pence pieces you have in your pocket.");
+        int twentypennies = scanner.nextInt();
+
+        System.out.println("Tell me how many fifty pence pieces you have in your pocket.");
+        int fiftypennies = scanner.nextInt();
+
+        //Calculate the amount of change the user has and add it all together
+        int pennytotal = pennies * penny;
+        int twopennytotal = twopennies * tuppence;
+        int fiveptotal = fivepennies * fivep;
+        int tenptotal = tenpennies * tenp;
+        int twentyptotal = twentypennies * twentyp;
+        int fiftyptotal = fiftypennies * tenbob;
+        int overalltotal = pennytotal + twopennytotal + fiveptotal + tenptotal + twentyptotal + fiftyptotal;
+        int difference = overalltotal - target;
+
+        //Provide the result to the user
+        if(overalltotal == target){
+            System.out.println("Congratulations, user! You have won the Quids In challenge.");
+        }
+        else{
+            System.out.println("Unfortunately you have not won this time, you were out by: " + difference);
+        }
+    }
+}
