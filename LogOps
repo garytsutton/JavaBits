@@ -1,0 +1,39 @@
+package chapter3;
+
+import java.util.Scanner;
+
+/*
+Logical Operators
+To qualify for a loan a person must earn at least £15,000 a year
+and have been working at their current place for at least 2 years
+ */
+
+public class LogicalOperatorLoanQualifier {
+
+    public static void main(String args[]){
+
+        //Initialise what we already know
+        int requiredSalary = 15000;
+        int requiredYearsEmployed = 2;
+
+        //Get what we need from the user
+        System.out.println("Enter your current annual salary.");
+        Scanner scanner = new Scanner(System.in);
+        double salary = scanner.nextDouble();
+
+        System.out.println("Enter the number of years you have been with your current employer.");
+        double numofyrs = scanner.nextDouble();
+        scanner.close();
+
+        //Make a decision
+        if(salary >= requiredSalary && numofyrs >= requiredYearsEmployed) {
+                System.out.println("Congratulations! You have qualified for this loan.");
+            }
+            else {
+            System.out.println("Sorry but you need to have worked at your current job for at least "
+                    + requiredYearsEmployed + " years and you must earn at least " +
+                    + requiredSalary + " to qualify for this loan.");
+        }
+        }
+    }
+
