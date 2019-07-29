@@ -1,0 +1,56 @@
+//Selenium Webdriver First Go
+
+import java.awt.List;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class BBCChecks 
+{
+
+	public static void main(String[] args) 
+	{
+		//TODO Auto-generated method stub
+
+		//SELENIUM CODE BELOW:
+		
+		//Invoke the Firefox .exe file...
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Gary.Sutton\\geckodriver.exe");
+		//Opens a Firefox browser
+		WebDriver driver =new FirefoxDriver();
+		//Maximises the window
+		driver.manage().window().maximize();
+		//Navigates to BBC Homepage
+		driver.get("https://www.bbc.co.uk/");
+		//Records the fact that the page loaded successfully
+		System.out.println("The BBC Homepage is opened");
+		//Check to see if there is a message about Cookies on the webpage
+		try {
+		    WebElement popUp = driver.findElement(By.id("bbccookies-continue-button"));
+		    popUp.click();  
+		} catch(NoSuchElementException | StaleElementReferenceException e) {
+		    System.out.println("The Cookie Question was not displayed so we carry on regardless: " + e.toString());
+		}
+	
+		//driver.findElement(By.id("bbccookies-continue-button")).click();
+		
+		/*driver.findElement(By.xpath("//*[@id='searchLocation']")).sendKeys("Halifax");
+		//Click on the Buy button
+		driver.findElement(By.id("buy")).click();
+		//Just hang on a minute...or a few seconds
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		//Click on Find Properties button
+		driver.findElement(By.id("submit")).click();
+		//Click on Radius dropdown menu
+		driver.findElement(By.name("radius")).click();
+		//Select 1 Mile
+		Select s= new Select(driver.findElement(By.name("radius")));
+		s.selectByVisibleText("+ 1 mile");*/
+				
+	}
+
+}
