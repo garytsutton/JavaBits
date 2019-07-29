@@ -1,0 +1,77 @@
+//A SEARCH ON RIGHTMOVE WHEN I WAS HOUSEHUNTING
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDown 
+{
+
+	public static void main(String[] args) 
+	{
+		//TODO Auto-generated method stub
+
+		//SELENIUM CODE BELOW:
+		
+		//Invoke the Firefox .exe file...
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Gary.Sutton\\geckodriver.exe");
+		//Opens a chrome browser
+		WebDriver driver =new FirefoxDriver();
+		//Maximises the window
+		driver.manage().window().maximize();
+		//Navigates to Rightmove
+		driver.get("https://www.rightmove.co.uk/");		
+		//Click in the Search box and types Halifax
+		driver.findElement(By.xpath("//*[@id='searchLocation']")).sendKeys("Halifax");
+		//Click on the Buy button
+		driver.findElement(By.id("buy")).click();
+		//Just hang on a minute...or a few seconds
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		//Click on Find Properties button
+		driver.findElement(By.id("submit")).click();
+		//Click on Radius dropdown menu
+		driver.findElement(By.name("radius")).click();
+		//Select 1 Mile
+		Select s= new Select(driver.findElement(By.name("radius")));
+		s.selectByVisibleText("+ 1 mile");
+		//Click on Min Price drop down
+		driver.findElement(By.name("minPrice")).click();
+		//Select £150k
+		Select s1= new Select(driver.findElement(By.name("minPrice")));
+		s1.selectByVisibleText("£150,000");
+		//Click on Max Price drop down
+		driver.findElement(By.name("maxPrice")).click();
+		//Select £500k
+		Select s2= new Select(driver.findElement(By.name("maxPrice")));
+		s2.selectByVisibleText("£500,000");
+		//Click on Min Bedrooms drop down
+		driver.findElement(By.name("minBedrooms")).click();
+		//Select 4
+		Select s3= new Select(driver.findElement(By.name("minBedrooms")));
+		s3.selectByVisibleText("4 Bed");
+		//Click Property Type banner button
+		driver.findElement(By.xpath("//*[@id=\'filtersBar\']/div/div[4]/div/span[1]")).click();
+		//Click on the Detached button
+		driver.findElement(By.xpath("//*[@id=\'searchFilters\']/div[1]/div[1]/div[2]/div[1]")).click();
+		// Click on the Semi-detached button
+		driver.findElement(By.xpath("//*[@id=\'searchFilters\']/div[1]/div[1]/div[2]/div[2]/div[2]")).click();
+		//Click Done
+		driver.findElement(By.xpath("//*[@id='searchFilters']/div[1]/div[2]/div/div[2]/button")).click();
+		//Click Filters banner button
+		driver.findElement(By.xpath("//*[@id=\'filtersBar\']/div/div[5]/div")).click();	
+		//Click on the Garden button
+		driver.findElement(By.xpath("//*[@id=\'mustHaveDontShow\']/div/div[1]/div/div[2]/div[1]/div[2]/span")).click();
+		//Click Done
+		driver.findElement(By.xpath("//*[@id=\'searchFilters\']/div[2]/div[2]/div/div[3]/button")).click();
+		//Click on Sort drop down menu
+		driver.findElement(By.xpath("//*[@id=\'sortType\']")).click();
+		//Select Lowest Price
+		driver.findElement(By.xpath("//*[@id=\'sortType\']/option[1]")).click();
+				
+	}
+
+}
